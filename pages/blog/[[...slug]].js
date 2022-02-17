@@ -5,32 +5,32 @@ const DinamycPage = ({state}) => {
   const router = useRouter()
   const { slug } = router.query
 
-  //Logic to render index
+  //Logic to render index and paginator.
 
   return <div>DinamycPage {slug}</div>;
 };
 
-
-
 export async function getStaticPaths() {
-  
-  //get all topics
-  //get all post
+  /* To build routes, we have to get all the information 
+  in the prismic API and render every time it detects a change. 
+    - get all topics
+    - get all post
+  *\
 
   /*
     Routes:
-    blog/
-    blog/page-2
     blog/topic/page-1
-    blog/page-1
+    blog/topic
+    blog/page-2
+    blog/
   */
 
   return {
     paths: [
-      { params: { slug: ['topic', 'page-1'] } },
-      { params: { slug: ['page-2'] } },
-      { params: { slug: ['topic'] } },
-      { params: { slug: [''] } },
+      { params: { slug: ['topic', 'page-1'] } }, // GET blog/topic/page-1 (multi-element array)
+      { params: { slug: ['topic'] } }, // GET blog/topic  (single-element array)
+      { params: { slug: ['page-2'] } }, // GET blog/page-2  (single-element array)
+      { params: { slug: [''] } }, // GET blob/  (empty object)
     ],
     fallback: false // false or 'blocking'
   };
