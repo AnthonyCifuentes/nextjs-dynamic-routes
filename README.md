@@ -21,7 +21,7 @@ npm run build
 
 ![image](https://user-images.githubusercontent.com/22040822/154575007-5cbb5b15-770d-420a-95a2-194361111847.png)
 
-### To create dynamic routes, we have to return in getStaticPaths function this Object:
+### To create dynamic routes in [[...slug]].js, we have to return in getStaticPaths function this Object:
 
 ![image](https://user-images.githubusercontent.com/22040822/154575556-5d74edad-ae34-420b-9ecf-6d9cf8036791.png)
 
